@@ -1,186 +1,230 @@
 {
   "type": "FeatureCollection",
   "name": "Fay Yolu Arıcılığı — Ardu-Bee Kovan Sensör Ağı",
-  "description": "Her kovan bir aktif fay segmentiyle eşleştirilmiş biyosismik sensör noktasıdır. Öncel, A.O. (2026).",
+  "description": "Her kovan Emre vd. (2018) aktif fay segmentiyle eşleştirilmiş biyosismik sensör noktasıdır. Öncel, A.O. (2026). DOI: 10.1007/s10518-016-0041-2",
   "features": [
     {
       "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [28.3312, 41.2505] },
       "properties": {
-        "kovan_id": "TR-KV-001", "hat": "Trakya",
+        "kovan_id": "TR-KV-001", "hat": "Trakya / KAFZ Batı",
         "lokasyon": "Çatalca — Çakıllı Köyü", "il": "İstanbul",
-        "fay_zonu": "KAFZ — Ganos Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 2.5, "aricilik_tipi": "Geçiş koridoru — Akasya + Ayçiçeği",
+        "fay_zonu": "KAFZ — Ganos Segmenti", "emre2018_segment": "1-37",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 2.5,
+        "aricilik_tipi": "Geçiş koridoru — Akasya + Ayçiçeği",
         "honey_notes": "Saha gözlemi 18 Haziran 2026 — tozlaşma ekonomisi, yaz teşvik beslemesi",
-        "alarm_threshold_hz": 258, "bilimsel_not": "Trakya uzantısı saha raporu"
+        "alarm_threshold_hz": 258, "arı_ırkı": "A. m. macedonica / carnica",
+        "bilimsel_not": "Ganos 1912 M7.4 — Trakya terroir referans noktası"
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [29.9350, 40.7654] },
+      "geometry": { "type": "Point", "coordinates": [30.2553, 40.7274] },
       "properties": {
-        "kovan_id": "TR-KV-007", "hat": "KAFZ",
-        "lokasyon": "Sapanca — İzmit Havzası", "il": "Sakarya",
-        "fay_zonu": "KAFZ — İzmit Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 2.5, "aricilik_tipi": "Geçiş koridoru — Ihlamur + Kestane",
-        "honey_notes": "İzmit 1999 Mw 7.4 episantr — retrospektif arıcı anketi referans noktası",
-        "alarm_threshold_hz": 258, "bilimsel_not": "Whitehead & Ulusoy (2013) İzmit vaka çalışması hattı"
+        "kovan_id": "TR-KV-007", "hat": "KAFZ Batı",
+        "lokasyon": "Sapanca — Arifiye", "il": "Sakarya",
+        "fay_zonu": "KAFZ — Arifiye Segmenti", "emre2018_segment": "1-27",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 2.5,
+        "aricilik_tipi": "Kestane + Ihlamur",
+        "honey_notes": "İzmit 1999 Mw 7.4 — sismik boşluk analizi — retrospektif arıcı anketi referansı",
+        "alarm_threshold_hz": 258, "arı_ırkı": "A. m. anatoliaca",
+        "bilimsel_not": "Whitehead & Ulusoy (2004) İzmit vaka hattı — p=4.91×10⁻¹⁵"
       }
     },
     {
       "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [31.4320, 40.9631] },
       "properties": {
-        "kovan_id": "TR-KV-006", "hat": "KAFZ",
+        "kovan_id": "TR-KV-006", "hat": "KAFZ Orta-Batı",
         "lokasyon": "Düzce — Yığılca", "il": "Düzce",
-        "fay_zonu": "KAFZ — Düzce Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 2.5, "aricilik_tipi": "Ihlamur + Yayla",
-        "honey_notes": "Endemik Yığılca ekotipi — ön kanat ~9.47 mm — KAFZ biyo-izolasyon hattı",
-        "alarm_threshold_hz": 258, "bilimsel_not": "EC/kül KAFZ segment farkı — Bıyık (2019)"
+        "fay_zonu": "KAFZ — Düzce Segmenti", "emre2018_segment": "1-25",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 2.5,
+        "aricilik_tipi": "Ihlamur + Yayla",
+        "honey_notes": "Endemik Yığılca arısı — ön kanat ~9.47 mm — KAFZ biyo-izolasyon hattı — EC/kül farkı",
+        "alarm_threshold_hz": 258, "arı_ırkı": "A. m. anatoliaca — Yığılca ekotipi",
+        "bilimsel_not": "Bıyık (2019) Yığılca–Camili EC segment farkı kalibrasyonu"
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [33.9167, 41.0167] },
+      "geometry": { "type": "Point", "coordinates": [32.2000, 40.8000] },
       "properties": {
-        "kovan_id": "TR-KV-008", "hat": "KAFZ",
-        "lokasyon": "Tosya — Merzifon-Esençay Hattı", "il": "Kastamonu",
-        "fay_zonu": "KAFZ — Tosya Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 2.0, "aricilik_tipi": "Karadeniz dağ arıcılığı — Ihlamur + Akasya",
-        "honey_notes": "KAFZ orta segment — Merzifon-Esençay fayı geçiş noktası",
-        "alarm_threshold_hz": 258, "bilimsel_not": "Karadeniz yamaç arıcılığı — orta gerilme bölgesi"
+        "kovan_id": "TR-KV-016", "hat": "KAFZ Orta",
+        "lokasyon": "Bolu — Gerede", "il": "Bolu",
+        "fay_zonu": "KAFZ — Gerede Segmenti", "emre2018_segment": "1-20",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 2.2,
+        "aricilik_tipi": "Yayla florası — Kestane + Çam",
+        "honey_notes": "Gerede Segmenti yüksek gerilme hattı — yayla bal protein içeriği kalibrasyonu",
+        "alarm_threshold_hz": 258, "arı_ırkı": "A. m. anatoliaca",
+        "bilimsel_not": "KAFZ orta segment — Bolu yayla arıcılığı terroir verisi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [33.7200, 40.9100] },
+      "properties": {
+        "kovan_id": "TR-KV-017", "hat": "KAFZ Orta",
+        "lokasyon": "Çankırı — Ilgaz", "il": "Çankırı",
+        "fay_zonu": "KAFZ — Ilgaz Segmenti", "emre2018_segment": "1-16",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 2.0,
+        "aricilik_tipi": "Çam / Kestane geçiş hattı",
+        "honey_notes": "Kayma hızı geçiş noktası (~2.0 cm/yıl) — Çam/Kestane bal kimyası geçişi",
+        "alarm_threshold_hz": 260, "arı_ırkı": "A. m. anatoliaca",
+        "bilimsel_not": "KAFZ slip-rate düşüş hattı — eşik geçiş kalibrasyonu için kritik"
       }
     },
     {
       "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [36.5000, 40.5500] },
       "properties": {
-        "kovan_id": "TR-KV-009", "hat": "KAFZ",
+        "kovan_id": "TR-KV-009", "hat": "KAFZ Orta-Doğu",
         "lokasyon": "Niksar — Kelkit Vadisi", "il": "Tokat",
-        "fay_zonu": "KAFZ — Niksar Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 2.0, "aricilik_tipi": "Vadi arıcılığı — Kekik + Yayla",
-        "honey_notes": "Kelkit Vadisi — KAFZ doğu kolu — jeokimyasal terroir geçiş kuşağı",
-        "alarm_threshold_hz": 258, "bilimsel_not": "KAFZ doğu segment — Erzincan yönü"
+        "fay_zonu": "KAFZ — Niksar Segmenti", "emre2018_segment": "1-9",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 2.0,
+        "aricilik_tipi": "Vadi arıcılığı — Kekik + Yayla",
+        "honey_notes": "1942 Niksar M7.1 kırılma hattı — Niksar balı morfometrik analiz noktası",
+        "alarm_threshold_hz": 260, "arı_ırkı": "A. m. anatoliaca",
+        "bilimsel_not": "Kelkit Vadisi terroir geçiş kuşağı"
       }
     },
     {
       "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [39.4900, 39.7500] },
       "properties": {
-        "kovan_id": "TR-KV-010", "hat": "KAFZ",
+        "kovan_id": "TR-KV-010", "hat": "KAFZ Doğu",
         "lokasyon": "Erzincan — KAFZ-DAFZ Kavşağı", "il": "Erzincan",
-        "fay_zonu": "KAFZ Doğu Ucu — DAFZ Kuzey Kolü Kavşağı", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 1.8, "aricilik_tipi": "Dağ arıcılığı — Geven + Çiçek balı",
-        "honey_notes": "1939 Erzincan M7.8 — Türkiye tarihinin en büyük depremi — kritik kalibrasyon noktası",
-        "alarm_threshold_hz": 260, "bilimsel_not": "KAFZ–DAFZ kavşağı — Erzincan havzası terroir"
+        "fay_zonu": "KAFZ — Erzincan Segmenti", "emre2018_segment": "1-4",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 1.8,
+        "aricilik_tipi": "Dağ arıcılığı — Geven + Çiçek",
+        "honey_notes": "1939 Erzincan M7.8 — Türkiye tarihinin en büyük depremi — Geven balı iz parmak izi",
+        "alarm_threshold_hz": 260, "arı_ırkı": "A. m. caucasica / anatoliaca geçiş",
+        "bilimsel_not": "KAFZ–DAFZ kavşağı — iki fay sisteminin terroir etkisi kesişimi"
       }
     },
     {
       "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [41.1350, 41.0000] },
       "properties": {
-        "kovan_id": "TR-KV-011", "hat": "KAFZ",
+        "kovan_id": "TR-KV-011", "hat": "KAFZ Doğu",
         "lokasyon": "Camili — Artvin", "il": "Artvin",
-        "fay_zonu": "KAFZ Doğu Kolu — Artvin Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 1.5, "aricilik_tipi": "Kafkas geçiş koridoru — A. m. caucasica",
-        "honey_notes": "Camili Biyosfer Rezervi — KAFZ doğu ucu — EC/kül Yığılca–Camili segment farkı",
-        "alarm_threshold_hz": 263, "bilimsel_not": "Camili EC değeri Yığılca'dan farklı — KAFZ segment kalibrasyonu"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [37.3015, 37.5850] },
-      "properties": {
-        "kovan_id": "TR-KV-003", "hat": "DAFZ",
-        "lokasyon": "Pazarcık — DAFZ Episantr", "il": "Kahramanmaraş",
-        "fay_zonu": "DAFZ — Pazarcık Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 1.0, "aricilik_tipi": "Narenciye + Kekik",
-        "honey_notes": "6 Şubat 2023 Mw 7.8 — retrospektif arıcı anketi kritik noktası",
-        "alarm_threshold_hz": 265, "bilimsel_not": "DAFZ 1 cm/yıl — orta gerilme kalibrasyonu"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [38.6800, 38.6800] },
-      "properties": {
-        "kovan_id": "TR-KV-012", "hat": "DAFZ",
-        "lokasyon": "Palu — Elazığ", "il": "Elazığ",
-        "fay_zonu": "DAFZ — Palu Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 1.0, "aricilik_tipi": "Dağ arıcılığı — Kekik + Meşe",
-        "honey_notes": "DAFZ orta hattı — Elazığ 2020 Mw 6.8 segmenti yakını",
-        "alarm_threshold_hz": 265, "bilimsel_not": "DAFZ orta segment terroir kalibrasyonu"
+        "fay_zonu": "KAFZ Doğu Kolu — Artvin Segmenti", "emre2018_segment": "1-2",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 1.5,
+        "aricilik_tipi": "Kafkas geçiş koridoru — Çiçek balı",
+        "honey_notes": "Camili Biyosfer Rezervi — EC/kül değeri Yığılca'dan farklı — KAFZ segment kalibrasyonu",
+        "alarm_threshold_hz": 263, "arı_ırkı": "A. m. caucasica",
+        "bilimsel_not": "Bıyık (2019) Camili–Yığılca EC farkı doğrulaması"
       }
     },
     {
       "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [40.4711, 38.9192] },
       "properties": {
-        "kovan_id": "TR-KV-004", "hat": "DAFZ",
+        "kovan_id": "TR-KV-004", "hat": "DAFZ Kuzey",
         "lokasyon": "Bingöl — Eskiçimen Yaylası", "il": "Bingöl",
-        "fay_zonu": "DAFZ — Bingöl Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 1.0, "aricilik_tipi": "Dağ arıcılığı — Geven + Kekik",
-        "honey_notes": "Yüksek prolin — biyo-izolasyon kalesi — A. m. caucasica koridoru",
-        "alarm_threshold_hz": 265, "bilimsel_not": "Yüksek rakım → düşük Pb/Cd, yüksek prolin"
+        "fay_zonu": "DAFZ — Karlıova Üçlü Eklemi / Bingöl Segmenti", "emre2018_segment": "2-1",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 1.0,
+        "aricilik_tipi": "Dağ arıcılığı — Geven + Kekik yayla",
+        "honey_notes": "Yüksek prolin — biyo-izolasyon kalesi — A. m. caucasica koridoru başlangıcı",
+        "alarm_threshold_hz": 265, "arı_ırkı": "A. m. caucasica",
+        "bilimsel_not": "DAFZ başlangıç noktası — yüksek rakım → düşük Pb/Cd, yüksek prolin"
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [36.1600, 36.5900] },
+      "geometry": { "type": "Point", "coordinates": [39.2667, 38.4000] },
       "properties": {
-        "kovan_id": "TR-KV-013", "hat": "DAFZ",
-        "lokasyon": "İskenderun — Amanos Segmenti", "il": "Hatay",
-        "fay_zonu": "DAFZ — Amanos Segmenti", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 0.8, "aricilik_tipi": "Narenciye + Defne + Kekik",
-        "honey_notes": "Amanos segmenti güney ucu — Hatay terroir — Akdeniz polifloralı bal",
-        "alarm_threshold_hz": 268, "bilimsel_not": "DAFZ güney ucu — düşük slip-rate, yüksek flora çeşitliliği"
+        "kovan_id": "TR-KV-012", "hat": "DAFZ Orta",
+        "lokasyon": "Elazığ — Sivrice", "il": "Elazığ",
+        "fay_zonu": "DAFZ — Pütürge Segmenti", "emre2018_segment": "2-4",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 1.0,
+        "aricilik_tipi": "Dağ arıcılığı — Kekik + Meşe",
+        "honey_notes": "Elazığ 2020 Mw 6.8 segmenti yakını — A. m. meda genotip sınırı",
+        "alarm_threshold_hz": 265, "arı_ırkı": "A. m. anatoliaca / meda geçiş",
+        "bilimsel_not": "Pütürge Segmenti — DAFZ orta terroir kalibrasyonu"
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [44.0435, 39.9213] },
+      "geometry": { "type": "Point", "coordinates": [37.3015, 37.5850] },
       "properties": {
-        "kovan_id": "TR-KV-002", "hat": "Doğu",
-        "lokasyon": "Iğdır — Facia Hattı", "il": "Iğdır",
-        "fay_zonu": "Kuzey-Doğu Anadolu Fay Zonu", "fay_tipi": "strike-slip",
-        "slip_rate_cm_yr": 1.0, "aricilik_tipi": "Dağ arıcılığı",
-        "honey_notes": "Mayıs 2026 vakası — sismik gürültü ve biyolojik yanlış alarm kalibrasyonu",
-        "alarm_threshold_hz": 265, "bilimsel_not": "Referans vaka: mekanik titreşim → kaskad koloni çöküşü"
+        "kovan_id": "TR-KV-003", "hat": "DAFZ Güney",
+        "lokasyon": "Pazarcık — K.Maraş", "il": "Kahramanmaraş",
+        "fay_zonu": "DAFZ — Pazarcık Segmenti", "emre2018_segment": "2-6",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 1.0,
+        "aricilik_tipi": "Narenciye + Kekik",
+        "honey_notes": "6 Şubat 2023 Mw 7.8 — retrospektif arıcı anketi kritik noktası — sismik mühürlü karakterizasyon",
+        "alarm_threshold_hz": 265, "arı_ırkı": "A. m. anatoliaca / syriaca geçiş",
+        "bilimsel_not": "DAFZ 1 cm/yıl — orta gerilme eşiği — Woith (2018) referans vakası adayı"
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [28.6825, 36.9681] },
+      "geometry": { "type": "Point", "coordinates": [36.5000, 36.7500] },
       "properties": {
-        "kovan_id": "TR-KV-005", "hat": "BAT",
-        "lokasyon": "Muğla — Köyceğiz", "il": "Muğla",
-        "fay_zonu": "BAT — Köyceğiz-Marmaris Grabeni", "fay_tipi": "normal",
-        "slip_rate_cm_yr": 3.0, "aricilik_tipi": "Salgı arıcılığı — Çam balı",
-        "honey_notes": "pH 4.29 · Kül %0.47 · EC >0.8 mS/cm · 3× mineral madde vs çiçek balı",
-        "alarm_threshold_hz": 258, "bilimsel_not": "BAT genişleme — Ca/Mg mineral yükleme → terroir"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [29.0969, 37.7765] },
-      "properties": {
-        "kovan_id": "TR-KV-014", "hat": "BAT",
-        "lokasyon": "Denizli — Pamukkale", "il": "Denizli",
-        "fay_zonu": "BAT — Denizli Grabeni", "fay_tipi": "normal",
-        "slip_rate_cm_yr": 2.5, "aricilik_tipi": "Ova arıcılığı — Pamuk + İncir",
-        "honey_notes": "Travertenli termal sular — Ca/Mg mineral pompası — Büyük Menderes Grabeni hattı",
-        "alarm_threshold_hz": 258, "bilimsel_not": "Termal su çıkışları → toprak mineral yükleme → nektar profili"
+        "kovan_id": "TR-KV-013", "hat": "DAFZ Güney",
+        "lokasyon": "Hatay — Hassa / Amanos", "il": "Hatay",
+        "fay_zonu": "DAFZ — Amanos Segmenti", "emre2018_segment": "2-7",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 0.8,
+        "aricilik_tipi": "Narenciye + Defne + Kekik — Akdeniz polifloralı",
+        "honey_notes": "A. m. syriaca saf koruma alanı — DAFZ güney ucu — Suriye sınırı",
+        "alarm_threshold_hz": 268, "arı_ırkı": "A. m. syriaca",
+        "bilimsel_not": "DAFZ güney ucu — düşük slip-rate, yüksek flora çeşitliliği — Hatay terroir"
       }
     },
     {
       "type": "Feature",
       "geometry": { "type": "Point", "coordinates": [27.1667, 38.4167] },
       "properties": {
-        "kovan_id": "TR-KV-015", "hat": "BAT",
-        "lokasyon": "İzmir — Gediz Grabeni Kıyısı", "il": "İzmir",
-        "fay_zonu": "BAT — Gediz Grabeni", "fay_tipi": "normal",
-        "slip_rate_cm_yr": 3.0, "aricilik_tipi": "Ova arıcılığı — Kekik + Nar çiçeği",
-        "honey_notes": "Gediz Grabeni — BAT açılma hızı maksimum — Ege terroir",
-        "alarm_threshold_hz": 258, "bilimsel_not": "BAT Gediz grabeni — en yüksek EC beklentisi"
+        "kovan_id": "TR-KV-015", "hat": "BAT Kuzey",
+        "lokasyon": "İzmir — Sasalı / Gediz Grabeni", "il": "İzmir",
+        "fay_zonu": "BAT — Gediz Graben Sistemi", "emre2018_segment": "BAT-GED",
+        "fay_tipi": "normal", "slip_rate_cm_yr": 3.0,
+        "aricilik_tipi": "Ova arıcılığı — Kekik + Nar çiçeği — Lokal ekotip",
+        "honey_notes": "Gediz Grabeni BAT açılma max — lokal ekotip koruma alanı — yüksek EC beklentisi",
+        "alarm_threshold_hz": 258, "arı_ırkı": "A. m. anatoliaca — Ege ekotipi",
+        "bilimsel_not": "BAT en yüksek açılma hızı — mineral pompası maksimum"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [28.0200, 37.8500] },
+      "properties": {
+        "kovan_id": "TR-KV-014", "hat": "BAT Orta",
+        "lokasyon": "Aydın — Köşk / B. Menderes", "il": "Aydın",
+        "fay_zonu": "BAT — Büyük Menderes Graben Sistemi", "emre2018_segment": "BAT-BMG",
+        "fay_tipi": "normal", "slip_rate_cm_yr": 2.8,
+        "aricilik_tipi": "Çam balı üretim merkezi — İncir çiçeği",
+        "honey_notes": "Büyük Menderes ~3 cm/yıl açılma — çam balı üretim merkezi — Tolon (1999) referans bölgesi",
+        "alarm_threshold_hz": 258, "arı_ırkı": "A. m. anatoliaca",
+        "bilimsel_not": "Tolon (1999) Muğla-Aydın bal biyokimyası veri tabanının ana hattı"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [28.6825, 36.9681] },
+      "properties": {
+        "kovan_id": "TR-KV-005", "hat": "BAT Güney",
+        "lokasyon": "Muğla — Köyceğiz", "il": "Muğla",
+        "fay_zonu": "BAT — Köyceğiz Grabeni", "emre2018_segment": "BAT-KOY",
+        "fay_tipi": "normal", "slip_rate_cm_yr": 3.0,
+        "aricilik_tipi": "Salgı arıcılığı — Kızılçam balı",
+        "honey_notes": "pH 4.29 · Kül %0.47 · EC >0.8 mS/cm · 3× mineral madde — Basra (çam) balı eşik noktası",
+        "alarm_threshold_hz": 258, "arı_ırkı": "A. m. anatoliaca — Muğla ekotipi",
+        "bilimsel_not": "BAT genişleme Ca/Mg mineral yükleme → jeokimyasal terroir mühürü"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [44.0435, 39.9213] },
+      "properties": {
+        "kovan_id": "TR-KV-002", "hat": "Doğu Sınır",
+        "lokasyon": "Iğdır — Tuzluca", "il": "Iğdır",
+        "fay_zonu": "Kuzey-Doğu Anadolu Fay Zonu", "emre2018_segment": "NDAFZ-IGD",
+        "fay_tipi": "strike-slip", "slip_rate_cm_yr": 1.0,
+        "aricilik_tipi": "Dağ arıcılığı — Dağ çiçeği",
+        "honey_notes": "Mayıs 2026 vakası — sismik gürültü ve biyolojik yanlış alarm kalibrasyonu",
+        "alarm_threshold_hz": 265, "arı_ırkı": "A. m. caucasica",
+        "bilimsel_not": "Sismobiyolojik kalibrasyon istasyonu — yanlış alarm filtresi geliştirme referansı"
       }
     }
   ]
