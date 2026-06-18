@@ -61,7 +61,12 @@ html,body,#map{height:100%;width:100%;font-family:'Segoe UI',sans-serif}
   <div class="leg-row"><div class="leg-line" style="background:#60a5fa"></div><span>Tip 2 — Normal fay (Graben)</span></div>
   <div class="leg-row"><div class="leg-line" style="background:#f87171"></div><span>Tip 3 — Ters fay / Bindirme</span></div>
   <div class="leg-row"><div class="leg-line" style="background:#94a3b8"></div><span>Tip 4 — Diğer</span></div>
-  <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;color:#64748b">
+  <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1)">
+    <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:6px">Ardu-Bee Kovanlar</div>
+    <div class="leg-row"><div style="width:12px;height:12px;border-radius:50%;background:#fbbf24;border:2px solid #fff;flex-shrink:0"></div><span>Strike-slip segmenti</span></div>
+    <div class="leg-row"><div style="width:12px;height:12px;border-radius:50%;background:#4ade80;border:2px solid #fff;flex-shrink:0"></div><span>Normal fay / Graben</span></div>
+  </div>
+  <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;color:#64748b">
     Kaynak: MTA DFY_GEO_WGS84_2013<br>DOI: 10.1007/s10518-016-0041-2
   </div>
 </div>
@@ -72,6 +77,7 @@ html,body,#map{height:100%;width:100%;font-family:'Segoe UI',sans-serif}
   <div class="stat-row"><span>KAFZ</span><span class="stat-n">~3.022</span></div>
   <div class="stat-row"><span>DAFZ</span><span class="stat-n">~631</span></div>
   <div class="stat-row"><span>Graben sistemleri</span><span class="stat-n">~1.163</span></div>
+  <div class="stat-row"><span>Ardu-Bee kovan</span><span class="stat-n">6</span></div>
   <div style="margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;color:#64748b">
     ali.oncel@iuc.edu.tr<br>İstanbul Üniversitesi-Cerrahpaşa
   </div>
@@ -119,16 +125,50 @@ function onEach(feature, layer) {
   layer.on('mouseout', function() { this.setStyle(styleF(feature)); });
 }
 
-fetch('data/turkiye_diri_fay.geojson')
-  .then(r => r.json())
-  .then(data => {
-    document.getElementById('loading').style.display = 'none';
-    L.geoJSON(data, { style: styleF, onEachFeature: onEach }).addTo(map);
-  })
-  .catch(err => {
-    document.getElementById('loading').innerHTML =
-      '<p style="color:#f87171">Veri yüklenemedi.<br>' + err.message + '</p>';
+const HIVE_COLOR = {
+  'strike-slip': '#fbbf24',
+  'normal': '#4ade80',
+  'thrust': '#f87171'
+};
+
+function hiveIcon(tip) {
+  const c = HIVE_COLOR[tip] || '#e2e8f0';
+  return L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;border-radius:50%;background:' + c +
+          ';border:2px solid #fff;box-shadow:0 0 8px ' + c + '88;"></div>',
+    iconSize: [14, 14],
+    iconAnchor: [7, 7]
   });
+}
+
+function onEachHive(feature, layer) {
+  const p = feature.properties;
+  const c = HIVE_COLOR[p.fay_tipi] || '#e2e8f0';
+  const html =
+    '<div class="pop-title" style="color:' + c + '">🐝 ' + p.lokasyon + '</div>' +
+    '<div class="pop-row">Fay: <b>' + p.fay_zonu + '</b></div>' +
+    '<div class="pop-row">Tip: <b>' + p.fay_tipi + '</b> · Slip rate: <b>' + p.slip_rate_cm_yr + ' cm/yıl</b></div>' +
+    '<div class="pop-row">Arıcılık: <b>' + p.aricilik_tipi + '</b></div>' +
+    '<div class="pop-row" style="color:#94a3b8;font-size:11px;margin-top:4px">' + p.honey_notes + '</div>' +
+    '<div class="pop-badge" style="background:rgba(251,191,36,.15);color:#fbbf24;margin-top:4px">Alarm: ' + p.alarm_threshold_hz + ' Hz · ' + p.kovan_id + '</div>';
+  layer.bindPopup(html, { maxWidth: 280 });
+}
+
+Promise.all([
+  fetch('data/turkiye_diri_fay.geojson').then(r => r.json()),
+  fetch('data/beehive_sensors.geojson').then(r => r.json())
+]).then(([fayData, hiveData]) => {
+  document.getElementById('loading').style.display = 'none';
+  L.geoJSON(fayData, { style: styleF, onEachFeature: onEach }).addTo(map);
+  L.geoJSON(hiveData, {
+    pointToLayer: (f, latlng) => L.marker(latlng, { icon: hiveIcon(f.properties.fay_tipi) }),
+    onEachFeature: onEachHive
+  }).addTo(map);
+}).catch(err => {
+  document.getElementById('loading').innerHTML =
+    '<p style="color:#f87171">Veri yüklenemedi.<br>' + err.message + '</p>';
+});
 </script>
 </body>
 </html>
