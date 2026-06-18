@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "name": "Ardu-Bee Kovan Sensör Ağı — Şablon",
+  "description": "Her kovan bir aktif fay segmentiyle eşleştirilmiş biyosismik sensör noktasıdır.",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [27.5, 40.2]
+      },
+      "properties": {
+        "kovan_id": "TR-KV-0001",
+        "il": "Çanakkale",
+        "fault_segment": "Ganos Segmenti",
+        "fault_zone": "KUZEY ANADOLU FAYI",
+        "fault_type": "strike-slip",
+        "slip_rate_cm_yr": 2.5,
+        "ardu_bee_band_hz": "230-270",
+        "ardu_bee_alarm_hz": "265-350",
+        "threshold_calibrated": false,
+        "notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [37.2, 37.6]
+      },
+      "properties": {
+        "kovan_id": "TR-KV-0002",
+        "il": "Kahramanmaraş",
+        "fault_segment": "Pazarcık Segmenti",
+        "fault_zone": "DOĞU ANADOLU FAY ZONU",
+        "fault_type": "strike-slip",
+        "slip_rate_cm_yr": 1.0,
+        "ardu_bee_band_hz": "230-270",
+        "ardu_bee_alarm_hz": "265-350",
+        "threshold_calibrated": false,
+        "notes": "6 Şubat 2023 Mw 7.8 kırık segmenti"
+      }
+    }
+  ]
+}
