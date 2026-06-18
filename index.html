@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fay Yolu Arıcılığı — Türkiye Diri Fay Veri Bankası</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body,#map{height:100%;width:100%;font-family:'Segoe UI',sans-serif}
+#title{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:1000;
+  background:rgba(10,10,18,.88);color:#fff;padding:10px 20px;border-radius:10px;
+  text-align:center;pointer-events:none;border:1px solid rgba(245,158,11,.35)}
+#title h1{font-size:15px;font-weight:600;color:#fbbf24;letter-spacing:.04em}
+#title p{font-size:11px;color:#94a3b8;margin-top:3px}
+#legend{position:absolute;bottom:30px;left:14px;z-index:1000;
+  background:rgba(10,10,18,.88);color:#fff;padding:12px 16px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.1);min-width:210px}
+#legend h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:8px}
+.leg-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:12px}
+.leg-line{width:28px;height:3px;border-radius:2px;flex-shrink:0}
+#stats{position:absolute;bottom:30px;right:14px;z-index:1000;
+  background:rgba(10,10,18,.88);color:#fff;padding:12px 16px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.1)}
+#stats h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:8px}
+.stat-row{font-size:12px;margin-bottom:4px;display:flex;justify-content:space-between;gap:16px}
+.stat-n{color:#fbbf24;font-weight:600;font-family:monospace}
+#loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:2000;background:rgba(10,10,18,.95);color:#fff;padding:24px 32px;
+  border-radius:12px;text-align:center;border:1px solid rgba(245,158,11,.4)}
+#loading p{margin-top:8px;font-size:13px;color:#94a3b8}
+.spinner{width:32px;height:32px;border:3px solid rgba(245,158,11,.2);
+  border-top-color:#fbbf24;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.leaflet-popup-content-wrapper{background:rgba(15,15,25,.95);color:#e2e8f0;
+  border:1px solid rgba(245,158,11,.3);border-radius:10px}
+.leaflet-popup-tip{background:rgba(15,15,25,.95)}
+.pop-title{font-size:13px;font-weight:600;color:#fbbf24;margin-bottom:6px}
+.pop-row{font-size:12px;margin-bottom:3px;color:#cbd5e1}
+.pop-row b{color:#e2e8f0}
+.pop-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div id="title">
+  <h1>🐝 Fay Yolu Arıcılığı — Türkiye Diri Fay Veri Bankası</h1>
+  <p>MTA 2013 · 14.565 segment · Emre vd. (2018) · Öncel (2026)</p>
+</div>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Fay verileri yükleniyor…<br><span style="font-size:11px;color:#64748b">14.565 segment · 8 MB</span></p>
+</div>
+
+<div id="map"></div>
+
+<div id="legend">
+  <h3>Fay Tipi</h3>
+  <div class="leg-row"><div class="leg-line" style="background:#f59e0b"></div><span>Tip 1 — Doğrultu atımlı (KAFZ/DAFZ)</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:#60a5fa"></div><span>Tip 2 — Normal fay (Graben)</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:#f87171"></div><span>Tip 3 — Ters fay / Bindirme</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:#94a3b8"></div><span>Tip 4 — Diğer</span></div>
+  <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;color:#64748b">
+    Kaynak: MTA DFY_GEO_WGS84_2013<br>DOI: 10.1007/s10518-016-0041-2
+  </div>
+</div>
+
+<div id="stats">
+  <h3>Veri Bankası</h3>
+  <div class="stat-row"><span>Toplam segment</span><span class="stat-n">14.565</span></div>
+  <div class="stat-row"><span>KAFZ</span><span class="stat-n">~3.022</span></div>
+  <div class="stat-row"><span>DAFZ</span><span class="stat-n">~631</span></div>
+  <div class="stat-row"><span>Graben sistemleri</span><span class="stat-n">~1.163</span></div>
+  <div style="margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;color:#64748b">
+    ali.oncel@iuc.edu.tr<br>İstanbul Üniversitesi-Cerrahpaşa
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map = L.map('map', {
+  center: [39.0, 35.5],
+  zoom: 6,
+  zoomControl: true
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+const COLOR = { '1':'#f59e0b', '2':'#60a5fa', '3':'#f87171', '4':'#94a3b8' };
+const LABEL = { '1':'Doğrultu atımlı','2':'Normal fay','3':'Ters fay / Bindirme','4':'Diğer' };
+const BADGE_COL = { '1':'rgba(245,158,11,.2)','2':'rgba(96,165,250,.2)','3':'rgba(248,113,113,.2)','4':'rgba(148,163,184,.2)' };
+
+function styleF(f) {
+  const tip = (f.properties.fay_tipi || '4');
+  return { color: COLOR[tip] || '#94a3b8', weight: 1.4, opacity: 0.75 };
+}
+
+function onEach(feature, layer) {
+  const p = feature.properties;
+  const tip = p.fay_tipi || '4';
+  const col = COLOR[tip] || '#94a3b8';
+  const lbl = LABEL[tip] || 'Diğer';
+  const bgc = BADGE_COL[tip] || 'rgba(148,163,184,.2)';
+
+  const html = '<div class="pop-title">' + (p.fay_adi || 'Adlandırılmamış Fay') + '</div>'
+    + (p.segment ? '<div class="pop-row">📍 <b>' + p.segment + '</b></div>' : '')
+    + '<div class="pop-row">Tip: <b>' + tip + '</b> — ' + lbl + '</div>'
+    + (p.dep_mag && p.dep_mag !== '-' ? '<div class="pop-row">Deprem: <b>M ' + p.dep_mag + '</b>' + (p.dep_tarih ? ' · ' + p.dep_tarih : '') + '</div>' : '')
+    + (p.segment_no ? '<div class="pop-row">Segment No: <b>' + p.segment_no + '</b></div>' : '')
+    + '<div class="pop-badge" style="background:' + bgc + ';color:' + col + '">Fay Tipi ' + tip + '</div>';
+
+  layer.bindPopup(html, { maxWidth: 260 });
+  layer.on('mouseover', function() { this.setStyle({ weight: 3, opacity: 1 }); });
+  layer.on('mouseout', function() { this.setStyle(styleF(feature)); });
+}
+
+fetch('data/turkiye_diri_fay.geojson')
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('loading').style.display = 'none';
+    L.geoJSON(data, { style: styleF, onEachFeature: onEach }).addTo(map);
+  })
+  .catch(err => {
+    document.getElementById('loading').innerHTML =
+      '<p style="color:#f87171">Veri yüklenemedi.<br>' + err.message + '</p>';
+  });
+</script>
+</body>
+</html>
